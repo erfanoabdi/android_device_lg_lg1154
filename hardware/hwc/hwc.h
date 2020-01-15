@@ -4,7 +4,7 @@
 #include <hardware/hardware.h>
 #include <hardware/hwcomposer.h>
 
-#include <hardware/hal_public.h>
+#include "hal_public_6230.h"
 #include "drv_display.h"
 #include "fb.h"
 
