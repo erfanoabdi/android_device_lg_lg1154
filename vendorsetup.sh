@@ -1,2 +1,2 @@
-add_lunch_combo omni_lg1154-eng
-add_lunch_combo omni_lg1154-userdebug
+add_lunch_combo cm_lg1154-eng
+add_lunch_combo cm_lg1154-userdebug
