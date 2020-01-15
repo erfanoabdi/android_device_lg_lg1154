@@ -51,9 +51,9 @@ on boot
 on early-fs
     mount_all /fstab.lg1154
 # GPU
-    insmod /pvrsrvkm.ko
-    insmod /dc_fbdev.ko
-    insmod /dc_gm.ko
+    insmod /system/vendor/modules/pvrsrvkm.ko
+    insmod /system/vendor/modules/dc_fbdev.ko
+    insmod /system/vendor/modules/dc_gm.ko
 
 service pvrsrvctl /system/vendor/bin/pvrsrvctl --start
 	class core

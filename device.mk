@@ -98,6 +98,8 @@ PRODUCT_PACKAGES += \
     init.lg1154.rc \
     ueventd.lg1154.rc
 
+include $(LOCAL_PATH)/modules/modules.mk
+
 # USB
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
