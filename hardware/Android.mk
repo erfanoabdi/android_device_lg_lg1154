@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2020 The LineageOS Project
+# Copyright (C) 2010 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,20 +11,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+LOCAL_PATH := $(call my-dir)
 
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
+include $(call all-makefiles-under,$(LOCAL_PATH))
 
-# Inherit from onyx device
-$(call inherit-product, device/lg/lg1154/device.mk)
-
-PRODUCT_RELEASE_NAME := LG Smart TV
-PRODUCT_DEVICE := lg1154
-PRODUCT_NAME := cm_lg1154
-PRODUCT_BRAND := LG
-PRODUCT_MODEL := LG1154
-PRODUCT_MANUFACTURER := lg

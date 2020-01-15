@@ -1,3 +1,19 @@
+#
+# Copyright (C) 2020 The LineageOS Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
 DEVICE_PATH := device/lg/lg1154
 
 # Architecture
@@ -17,15 +33,29 @@ TARGET_BOOTLOADER_BOARD_NAME := LG1154
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
-TARGET_KERNEL_ARCH := arm
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/zImage
-
-# Boot image
+BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_CMDLINE := androidboot.hardware=lg1154 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
+TARGET_KERNEL_ARCH := arm
+TARGET_KERNEL_CONFIG := lg1154_kdrv_android_defconfig
+TARGET_KERNEL_SOURCE := kernel/lg/lg1154
+
+# Audio
+BOARD_USES_ALSA_AUDIO := true
+
+# Graphics
+USE_OPENGL_RENDERER := true
+TARGET_USES_ION := true
+BOARD_EGL_CFG := $(DEVICE_PATH)/egl/egl.cfg
+
+# Media
+TARGET_USES_MEDIA_EXTENSIONS := true
+
+# Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.lg1154
 
 # Filesystems
 BOARD_HAS_LARGE_FILESYSTEM := true
