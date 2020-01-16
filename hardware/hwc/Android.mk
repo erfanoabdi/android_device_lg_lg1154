@@ -35,6 +35,6 @@ LOCAL_SHARED_LIBRARIES := \
 LOCAL_C_INCLUDES += $(TARGET_HARDWARE_INCLUDE)
 LOCAL_C_INCLUDES += system/core/libion/include
 LOCAL_MODULE := hwcomposer.lg1154
-LOCAL_CFLAGS:= -DLOG_TAG=\"hwcomposer\"
+LOCAL_CFLAGS := -DLOG_TAG=\"hwcomposer\"
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)

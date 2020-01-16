@@ -9,6 +9,8 @@
 @License        Strictly Confidential.
 */ /**************************************************************************/
 
+#define LOG_NDEBUG 0
+
 #include "hwc.h"
 
 
