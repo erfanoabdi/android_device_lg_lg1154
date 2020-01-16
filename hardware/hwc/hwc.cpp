@@ -433,13 +433,7 @@ int hwc_prepare(hwc_composer_device_1_t *dev, size_t numDisplays,
 	    	}
         }
 
-        ret = ioctl(globctx->DisplayFd,DISP_CMD_HWC_GET_DISP_READY,(unsigned long)arg);
-        if(ret == 0 || globctx->bDisplayReady == 0)
-        {
-            ALOGV("%s:Display is not ready yet!",__func__);
-            forceSoftwareRendering = 1;
-        }
-        globctx->bDisplayReady = ret;
+        globctx->bDisplayReady = true;
 
     	if (forceSoftwareRendering)
     	{
