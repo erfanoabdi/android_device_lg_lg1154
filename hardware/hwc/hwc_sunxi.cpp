@@ -782,7 +782,6 @@ SUNXI_hwcdev_context_t* HwcCreateDevice(void)
     SUNXI_hwcdev_context_t *Globctx = &gSunxiHwcDevice;
 
     unsigned long arg[4] = {0};
-    int outtype;
     int HDMI_fd;
     int DispCnt;
 	int num = 0;
@@ -816,39 +815,7 @@ SUNXI_hwcdev_context_t* HwcCreateDevice(void)
     
     PsDisplayInfo->VirtualToHWDisplay = AW_DIS_00;
     arg[0] = AW_DIS_00;
-	outtype = ioctl(Globctx->DisplayFd, DISP_CMD_GET_OUTPUT_TYPE, arg);
-	while(outtype == DISP_OUTPUT_TYPE_NONE) {
-		usleep(50000);
-    	outtype = ioctl(Globctx->DisplayFd, DISP_CMD_GET_OUTPUT_TYPE, arg);
-		num++;
-		if(num == 20)
-		{
-			ALOGE( "########NO LCD Display Screen#######");
-			break;
-		}
-	}
-
-    if(outtype==DISP_OUTPUT_TYPE_NONE)
-    {
-        arg[0] = AW_DIS_02;
-        outtype = ioctl(Globctx->DisplayFd, DISP_CMD_GET_OUTPUT_TYPE, arg);
-        if(outtype == DISP_OUTPUT_TYPE_NONE)
-        {
-            arg[0] = AW_DIS_01;
-            outtype = ioctl(Globctx->DisplayFd, DISP_CMD_GET_OUTPUT_TYPE, arg);
-            if(outtype == DISP_OUTPUT_TYPE_NONE)
-            {
-                 ALOGE( "########No Display Screen#######");
-            }else{
-            	PsDisplayInfo->VirtualToHWDisplay = AW_DIS_01;
-	        }
-        }else{
-            PsDisplayInfo->VirtualToHWDisplay = AW_DIS_02;
-        }
-    }else{
-        PsDisplayInfo->VirtualToHWDisplay = AW_DIS_00;
-    }
-    PsDisplayInfo->DisplayType = outtype;
+    PsDisplayInfo->DisplayType = DISP_OUTPUT_TYPE_LCD;
     Globctx->CanForceGPUCom = 1;
     Globctx->ForceGPUComp = 0;
     Globctx->layer0usfe = aw_get_composer0_use_fe();
