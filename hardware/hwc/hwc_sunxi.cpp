@@ -502,11 +502,7 @@ int HwcSetupLayer(SUNXI_hwcdev_context_t *Globctx, hwc_layer_1_t *layer,int zOrd
     }
     layer_info->fb.size.height = handle->iHeight;
     
-    layer_info->fb.addr[0] = IonGetAddr(handle->fd[0]);
-    if(layer_info->fb.addr[0] == 0)
-    {
-         goto ERR;
-    }
+    layer_info->fb.addr[0] = 0x6b400000;
 
     if(layer_info->fb.format == DISP_FORMAT_YUV420_P)
     {
