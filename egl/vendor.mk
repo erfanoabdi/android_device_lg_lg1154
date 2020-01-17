@@ -11,4 +11,5 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/egl/libGLESv1_CM_POWERVR_ROGUE.so:system/vendor/lib/egl/libGLESv1_CM_POWERVR_ROGUE.so \
     $(LOCAL_PATH)/egl/libGLESv2_POWERVR_ROGUE.so:system/vendor/lib/egl/libGLESv2_POWERVR_ROGUE.so \
     $(LOCAL_PATH)/egl/gralloc.sunxi.so:system/vendor/lib/hw/gralloc.lg1154.so \
-    $(LOCAL_PATH)/egl/powervr.ini:system/etc/powervr.ini
+    $(LOCAL_PATH)/egl/powervr.ini:system/etc/powervr.ini \
+    $(LOCAL_PATH)/egl/hwcomposer.rogue.so:system/vendor/lib/hw/hwcomposer.lg1154.so
