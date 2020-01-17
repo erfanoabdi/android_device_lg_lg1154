@@ -48,8 +48,7 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Graphics
 PRODUCT_PACKAGES += \
-    libion \
-    hwcomposer.lg1154
+    libion
 
 include $(LOCAL_PATH)/egl/vendor.mk
 
