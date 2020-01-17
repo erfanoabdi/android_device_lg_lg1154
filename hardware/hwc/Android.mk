@@ -21,7 +21,19 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 LOCAL_SHARED_LIBRARIES := liblog libEGL
-LOCAL_SRC_FILES := hwcomposer.c
+LOCAL_SRC_FILES := hwc.cpp \
+									 hwc_sunxi.cpp \
+									 hwc_others.cpp \
+									 hal.cpp
+LOCAL_SHARED_LIBRARIES := \
+	libutils \
+	libEGL \
+	libGLESv1_CM \
+	liblog \
+	libcutils
+
+LOCAL_C_INCLUDES += $(TARGET_HARDWARE_INCLUDE)
+LOCAL_C_INCLUDES += system/core/libion/include
 LOCAL_MODULE := hwcomposer.lg1154
 LOCAL_CFLAGS := -DLOG_TAG=\"hwcomposer\"
 LOCAL_MODULE_TAGS := optional
