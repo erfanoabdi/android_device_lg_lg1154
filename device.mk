@@ -48,6 +48,7 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Graphics
 PRODUCT_PACKAGES += \
+    libshim_liblog \
     libion
 
 include $(LOCAL_PATH)/egl/vendor.mk

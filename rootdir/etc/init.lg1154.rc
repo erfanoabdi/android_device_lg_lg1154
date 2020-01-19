@@ -1,4 +1,6 @@
 on init
+    export LD_SHIM_LIBS /system/lib/liblog.so|libshim_liblog.so:/system/lib/libcutils.so|libshim_liblog.so
+
     # See storage config details at http://source.android.com/tech/storage/
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage/emulated 0555 root root
